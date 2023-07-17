@@ -45,53 +45,73 @@
                     <h2>Hacemos que tus prendas luzcan increíbles</h2>
                 </div>
                 <div class="row justify-content-center">
-                    <button type="button" class="btn btn-outline-light">
-                        Saber más
-                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10"><path class="arrow-icon--arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path></g></svg>
-                    </button>
+                    <a href="#about-us">
+                        <button type="button" class="btn btn-outline-light">
+                            Saber más
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10"><path class="arrow-icon--arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path></g></svg>
+                        </button>
+                    </a>
                 </div>
             </div>
     </div>
 
-    <div class="aboutus-container container container-fluid">
+    <div class="aboutus-container" id="about-us">
         <div class="principal">
-            <h1>Lavando por ti</h1>
-            <p>
-                Somos una compañía comprometida y cuyas acciones las llevamos a cabo con el fin de servir y satisfacer a los clientes.
-                Nuestro establecimiento es dedicado a ofrecer un servicio para el lavado de ropa, permitiendo así facilitar los labores de lavado.
-                Contamos con lavado, secado, planchado y generadores de vapor. Cada uno de ellos cumple con una función diferente para que tu ropa luzca impecable.
-                Tenemos distintos tipos de paquetes que puede adquirir. Cada uno de ellos contiene diferentes opciones de lavado.  
-            </p>
+            <div class="container">
+                <h1>Lavando por ti</h1>
+                <p>
+                    Somos una compañía comprometida y cuyas acciones las llevamos a cabo con el fin de servir y satisfacer a los clientes.
+                    Nuestro establecimiento es dedicado a ofrecer un servicio para el lavado de ropa, permitiendo así facilitar los labores de lavado.
+                    Contamos con lavado, secado, planchado y generadores de vapor. Cada uno de ellos cumple con una función diferente para que tu ropa luzca impecable.
+                    Tenemos distintos tipos de paquetes que puede adquirir. Cada uno de ellos contiene diferentes opciones de lavado.  
+                </p>
+                <div class="row justify-content-between">
+                    <img src="./src/img/lavandería.jpg" alt="imagen" class="img-pres">
+                    <img src="./src/img/lavandería1.png" alt="imagen" class="img-pres">
+                </div>
+            </div>
         </div>
 
-        <div class="row justify-content-center">
-            <p class="centrado">  <img src="./src/img/lavandería.jpg" alt="imagen" width="550" height="350"> </p>
-            <p class="centrado">  <img src="./src/img/lavandería1.png" alt="imagen" width="550" height="350"> </p>
-        </div>
-        <div class="missionnvision">
-            <h3>Misión</h3>
-
-            <p>Crear sitios web de calidad con la finalidad de dar a conocer los negocios de nuestros clientes.</p>
-            
-            <h3>Visión</h3>
-
-            <p>Ser una empresa líder a nivel nacional de servicios de diseño de sitios web, contribuir a suplir 
-                las necesidades de nuestros clientes creando ventajas competitivas para sus clientes en la industria del mercado.</p>
-        </div>
-
-        <div class="valoresypolidicas">
-            <h3>Valores organizacionales</h3>
-            <ul>
-                <li>Compromiso</li>
-                <li>Trabajo en equipo</li>
-                <li>Respeto</li>
-                <li>Integridad</li>
-            </ul>
-            <h3>Política de calidad</h3>
-            <p>Política de calidad según la norma ISO 9001</p>
-        </div>
         
-        <div class="addres">
+        <div>
+            <div class="row justify-content-around">
+                <div class="col-4 mision d-flex align-items-center">
+                    <div class="row">
+                        <h2 class="col-12">Misión</h2>
+
+                        <p class="col-12">Crear sitios web de calidad con la finalidad de dar a conocer los negocios de nuestros clientes.</p>
+
+                    </div>
+                </div>
+                <div class="col-4 vision d-flex align-items-center">
+                    <div class="row">
+                        <h2 class="col-12">Visión</h2>
+                        <p class="col-12">
+                            Ser una empresa líder a nivel nacional de servicios de diseño de sitios web, 
+                            contribuir a suplir las necesidades de nuestros clientes creando ventajas 
+                            competitivas para sus clientes en la industria del mercado.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-4 valoresypoliticas d-flex align-items-center">
+                    <div class="row">
+                        <h2 class="col-12">Valores organizacionales</h2>
+                        <ul class="col-12">
+                            <li>Compromiso</li>
+                            <li>Trabajo en equipo</li>
+                            <li>Respeto</li>
+                            <li>Integridad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            
+            <h2>Política de calidad</h2>
+            <p>Política de calidad según la norma ISO 9001</p>
             <h2>Dirección</h2>
             <p>Av. Pedro Guerrero Lucio #509 Rincón de Romos, Aguascalientes.</p>
         </div>

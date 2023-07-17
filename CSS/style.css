@@ -1,3 +1,4 @@
+/*general*/
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -13,10 +14,12 @@ body{
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
+
+/*Nav*/
 nav{
     display: flex;
     justify-content: space-between;
-    padding: 36px 24px;
+    padding: 32px 24px;
     border-bottom: 1px solid var(--very-light-pink);
 }
 .menu{
@@ -74,63 +77,8 @@ nav{
     justify-content: center;
     align-items: center;
 }
-.login, .contact {
-    width: 100%;
-    height: 80vh;
-    display: grid;
-    place-items: center;
-}
-.form-container{
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    width: 300px;
-}
-.logo{
-    width: 150px;
-    margin-bottom: 48px;
-    justify-self: center;
-    display: none;
-}
-.title{
-    font-size: var(--lg);
-    margin-bottom: 36px;
-    text-align: start;
-}
-.subtitle {
-    color: var(--very-light-pink);
-    font-size: var(--md);
-    font-weight: 300;
-    margin-top: 0;
-    margin-bottom: 32px;
-    text-align: center;
-}
-.form {
-    display: flex;
-    flex-direction: column;
-}
-.form div {
-    display: flex;
-    flex-direction: column;
-}
-.label {
-    font-size: var(--sm);
-    font-weight: bold;
-    margin-bottom: 4px;
-}
-.input {
-    background-color: var(--text-input-field);
-    border: none;
-    border-radius: 8px;
-    height: 30px;
-    font-size: var(--md);
-    padding: 6px;
-    margin-bottom: 12px;
-}
-.input-name,
-.input-email,
-.input-password {
-    margin-bottom: 22px;
-}
+
+/*Buttons*/
 .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
@@ -146,34 +94,6 @@ nav{
     margin-top: 14PX;
     margin-bottom: 30PX;
 }
-.form {
-    display: flex;
-    flex-direction: column;
-}
-.form a {
-    color: var(--hospital-green);
-    font-size: var(--sm);
-    text-align: center;
-    text-decoration: none;
-    margin-bottom: 52px;
-}
-.label {
-    font-size: var(--sm);
-    font-weight: bold;
-    margin-bottom: 4px;
-}
-.input {
-    background-color: var(--text-input-field);
-    border: none;
-    border-radius: 8px;
-    height: 30px;
-    font-size: var(--md);
-    padding: 6px;
-    margin-bottom: 12px;
-}
-.input-email {
-    margin-bottom: 22px;
-}
 .secondary-button {
     background-color: var(--white);
     border-radius: 8px;
@@ -184,6 +104,59 @@ nav{
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+}
+
+/*Forms*/
+.form-container{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 300px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.form div {
+    display: flex;
+    flex-direction: column;
+}
+.form a {
+    color: var(--hospital-green);
+    font-size: var(--sm);
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 52px;
+}
+.login, .contact {
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    place-items: center;
+}
+.logo{
+    width: 150px;
+    margin-bottom: 48px;
+    justify-self: center;
+    display: none;
+}
+.title{
+    font-size: var(--lg);
+    margin-bottom: 36px;
+    text-align: start;
+}
+.input {
+    background-color: var(--text-input-field);
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    font-size: var(--md);
+    padding: 6px;
+    margin-bottom: 12px;
+}
+.input-name,
+.input-email,
+.input-password {
+    margin-bottom: 22px;
 }
 /*Contacto*/
 .input-comentarios{
@@ -196,7 +169,8 @@ nav{
     background-image:url(../src/img/laundry.jpg);
     background-size: cover;
     filter: brightness(0.9);
-    height: 92vh;
+    height: 88vh;
+    margin-bottom: 0;
 }
 .jumbotron h1, .jumbotron h2 {
     margin-top: 2vh;
@@ -217,20 +191,47 @@ nav{
     padding: 10px;
 }
 .aboutus-container{
-    text-align: justify;   
-    padding-top: 4vh;
+    text-align: justify;
+    width: 100%;   
 }
-.aboutus-container h1,.aboutus-container h3, .missionnvision,.valoresypolidicas,.addres{
+.aboutus-container h1,.aboutus-container h3, .missionnvision,.valoresypolidicas{
     text-align: center; 
-    padding-bottom: 4vh;
-    padding-top: 4vh;
+    padding: 4vh 0;
 }
 .principal{
-    padding-bottom: 8vh;
+    margin: 20vh 0;
+    padding: 0vh 20vh;
+    line-height: 2.6em;
 }
-.valoresypolidicas ul{
-    list-style: none;
-}.valoresypolidicas ul li{
+.principal .img-pres{
+    width: 450px;
+    height: 350px;
+    background-size: cover;
+    border-radius: 5%;
+    margin-top: 8vh;
+}
+.mision, .vision, .valoresypoliticas{
+    padding: 0 8vh;
+    height: 68vh;
+    color: #fff;
+    font-weight: bolder;
+}
+.mision h2, .vision h2, .valoresypoliticas h2{
+    text-align: center;
+    padding-bottom: 4vh;
+}
+.mision{
+    background-color: #3774ed;
+}
+.vision{
+    background-color: #82bc00;
+}
+.valoresypoliticas{
+    background-color: #d88d00;
+}
+.valoresypoliticas ul{
+    list-style:disc;
+}.valoresypoliticas ul li{
     margin-bottom: 2vh;
 }
 
@@ -253,6 +254,15 @@ nav{
 }
 .card-price, .card-benefits{
     padding-bottom: 50px;
+}
+
+.footer{
+    height: 34vh;
+    background-color: #1a95fc;
+    text-align: center; 
+    color: #fff;
+    font-weight: bolder;
+    padding: 4vh 0;
 }
 
 @media(max-width: 640px){
