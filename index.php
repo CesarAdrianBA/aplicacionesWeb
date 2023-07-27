@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -43,11 +43,11 @@
 
   <section class='laundry' id='home'>
     <div class='laundry-black'>
-      <div class='laundry-section1'>
-        <div class='laundry-section2'>
-          <div class='laundry-section3'>
-            <div class='laundry-section4'>
-              <div class='laundry-section5'>
+      <div class='laundry-Ch6Q9i'>
+        <div class='laundry-spn2H2'>
+          <div class='laundry-AWKiao'>
+            <div class='laundry-T63LFq'>
+              <div class='laundry-ps4EEI'>
                 <p class='primary-title'>
                   Limpieza profesional.
                   <span class='secondary-title'>Cuidado personalizado.</span>

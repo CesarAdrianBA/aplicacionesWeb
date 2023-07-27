@@ -154,27 +154,27 @@ body::-webkit-scrollbar-thumb {
   display: flex;
 }
 
-.laundry-section1 {
+.laundry-Ch6Q9i {
   padding-top: 6rem;
   padding-bottom: 2rem;
   overflow: hidden;
   z-index: 10;
 }
 
-.laundry-section2 {
+.laundry-spn2H2 {
   margin-left: auto;
   margin-right: auto;
   max-width: 80rem;
   padding: 0 1rem 0 1rem;
 }
 
-.laundry-section3 {
+.laundry-AWKiao {
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
 }
 
-.laundry-section4 {
+.laundry-T63LFq {
   position: relative;
   z-index: 10;
   padding: 0 1rem 0 1rem;
@@ -182,7 +182,7 @@ body::-webkit-scrollbar-thumb {
   grid-column: span 6 / span 6;
 }
 
-.laundry-section5 {
+.laundry-ps4EEI {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -289,11 +289,11 @@ body::-webkit-scrollbar-thumb {
   /* mediaqueries of Laundry section */
 
 @media (min-width: 640px) {
-  .laundry-section2 {
+  .laundry-spn2H2 {
     padding: 0 1.5rem 0 1.5rem;
   }
 
-  .laundry-section4 {
+  .laundry-T63LFq {
     padding: 0 1.5rem 0 1.5rem;
     text-align: center;
     margin-bottom: 4rem;
@@ -310,7 +310,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media (min-width: 1024px){
-  .laundry-section3 {
+  .laundry-AWKiao {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -319,13 +319,13 @@ body::-webkit-scrollbar-thumb {
 
   }
 
-  .laundry-section4 {
+  .laundry-T63LFq {
     margin-bottom: 0px;
     padding: 0 0 0 0;
     display: flex;
   }
 
-  .laundry-section5 {
+  .laundry-ps4EEI {
     padding-top: 8rem;
     padding-bottom: 8rem;
 
