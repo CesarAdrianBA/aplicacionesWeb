@@ -133,7 +133,7 @@ nav {
 /* About Section */
 
 .services2 {
-  background: transparent url(/static/soap_and_leaf.webp) no-repeat;
+  background: transparent url(../static/soap_and_leaf.webp) no-repeat;
   width: 100%;
   display: table;
   background-position: center;

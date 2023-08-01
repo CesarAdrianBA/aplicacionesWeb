@@ -75,19 +75,17 @@
     </div>
 
     <?php
-    
-    if(isset($_REQUEST['Enviar'])){
+        if(isset($_REQUEST['Enviar'])){
 
-        $email=$_POST['email'];
-        $comentario=$_POST['comentario'];
-        $insert = 'insert into comentarios(email,comentario) values (:email,:comentario)';
-        $insert = $db->connect()->prepare($insert);
-        $insert->bindParam('email',$email, PDO::PARAM_STR,120);
-        $insert->bindParam('comentario',$comentario, PDO::PARAM_STR,350);
-        $insert->execute();
-        echo 'Registro agregado';
-    }
-
+            $email=$_POST['email'];
+            $comentario=$_POST['comentario'];
+            $insert = 'insert into comentarios(email,comentario) values (:email,:comentario)';
+            $insert = $db->connect()->prepare($insert);
+            $insert->bindParam('email',$email, PDO::PARAM_STR,120);
+            $insert->bindParam('comentario',$comentario, PDO::PARAM_STR,350);
+            $insert->execute();
+            echo 'Registro agregado';
+        }
     ?>
 
 </body>

@@ -931,7 +931,7 @@ body::-webkit-scrollbar-thumb {
 
 .comments-6xJFPJ {
   padding: 8px;
-  width: 50%;
+  width: 100%;
 }
 
 .comments-RwbXJ4 {
@@ -939,6 +939,28 @@ body::-webkit-scrollbar-thumb {
 }
 
 .comments-Gdedzz {
+  width: 100%;
+  background-color: #f3f4f6;
+  border-radius: 4px;
+  border: 1px solid rgb(209, 213, 219);
+  height: 40px;
+  font-size: 20px;
+  line-height: 28px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  color: black;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  line-height: 32px;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  font-family: PopppinsMedium;
+}
+
+.comments-Gdedzz2 {
   width: 100%;
   background-color: #f3f4f6;
   border-radius: 4px;
@@ -959,6 +981,7 @@ body::-webkit-scrollbar-thumb {
   transition-duration: 150ms;
   font-family: PopppinsMedium;
 }
+
 
 .comments-Gdedzz:focus {
   border-color: #0F74BA;
@@ -1166,4 +1189,66 @@ body::-webkit-scrollbar-thumb {
     margin-top: 32px;
     margin-bottom: 32px;
   }
+}
+
+/*services*/
+.services-container{
+  padding-top: 20vh;
+  padding-bottom: 15vh;
+}
+
+.subscription-title{
+  padding-bottom: 8vh;
+  line-height: 3.5em;
+}
+
+.subscription-title h3{
+  font-family: PoppinsBold;
+  font-size: 48px;
+  color: #0F74BA;
+}
+.subscription-title p{
+  margin-top: 24px;
+  font-family: Satoshi;
+  font-size: 24px;
+  line-height: 24px;
+  color: #212529
+}
+
+.card-p{
+  border: solid 2px #0F74BA;
+  padding: 48px 32px 48px 32px;
+  border-radius: 24px;
+}
+.card-benefits ul{
+  list-style-image:url(../src/icon/check_yes.svg);
+}
+.suscribe-button{
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px 8px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: PoppinsMedium;
+  user-select: none;
+  text-align: center;
+  border: #0F74BA solid 2px;
+  color: #0F74BA;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  border-radius: 8px; 
+}
+.suscribe-button{
+  background-color: #0F74BA;
+  color: #fff;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/*login*/
+.login-container{
+  padding-top: 20vh;
+  padding-bottom: 15vh;
 }

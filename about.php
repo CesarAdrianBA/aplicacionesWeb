@@ -21,7 +21,7 @@
   <meta property="og:description" content="Professional Cleaning, Professional Care" />
   <meta property="og:locate" content="es_MX" />
   <meta property="og:site_name" content="Laundry Miss Clean" />
-  <link rel="stylesheet" href="/CSS/about.css">nk
+  <link rel="stylesheet" href="./CSS/about.css">
 </head>
 
 <body>
@@ -33,10 +33,10 @@
       <input type="checkbox" id="menu-toggle">
       <label for="menu-toggle" class="menu-icon">&#9776;</label>
       <ul class="menu">
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/about.php">Nosotros</a></li>
-        <li><a href="/services.php">Servicios</a></li>
-        <li><a href="/contact.php">Contacto</a></li>
+        <li><a href="./index.php">Inicio</a></li>
+        <li><a href="./about.php">Nosotros</a></li>
+        <li><a href="./services.php">Servicios</a></li>
+        <li><a href="./index.php#comments">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -204,7 +204,7 @@
     <div class='footer-xlE1cw'>
       <div class='footer-YYWlWo'>
         <div class='footer-7GIQa3'>
-          <img src='/static/svg/MCL.svg' class='footer-8eXE9L' alt='Laundry Miss Clean Logo' />
+          <img src='./static/svg/MCL.svg' class='footer-8eXE9L' alt='Laundry Miss Clean Logo' />
         </div>
         <div class='footer-loQjmt'>
           <div>

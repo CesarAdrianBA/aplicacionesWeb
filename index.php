@@ -25,6 +25,17 @@
 </head>
 
 <body>
+
+<!--conexion a base de datos-->
+  <?php
+      
+      include('connection.php');
+      $email=$comentario='';
+      $db=new Database();
+
+  ?>
+<!-- /conexion a base de datos  -->
+
   <header class="header">
     <nav>
       <div class="logo">
@@ -33,10 +44,10 @@
       <input type="checkbox" id="menu-toggle">
       <label for="menu-toggle" class="menu-icon">&#9776;</label>
       <ul class="menu">
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/about.php">Nosotros</a></li>
-        <li><a href="/services.php">Servicios</a></li>
-        <li><a href="/contact.php">Contacto</a></li>
+        <li><a href="./index.php">Inicio</a></li>
+        <li><a href="./about.php">Nosotros</a></li>
+        <li><a href="./services.php">Servicios</a></li>
+        <li><a href="./index.php#comments">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -88,9 +99,9 @@
                 limpieza y producimos las soluciones más actualizadas para
                 manchas o telas sensibles.
               </p>
-              <img class='divider' src='/static/divider.png' alt='Divider' />
+              <img class='divider' src='./static/divider.png' alt='Divider' />
               <div class='feel-by7lvK'>
-                <img class='five-stars' src='/static/svg/five-stars.svg' alt='Customer' width={50} height={50} />
+                <img class='five-stars' src='./static/svg/five-stars.svg' alt='Customer' width={50} height={50} />
                 <div class='feel-B61sTw'>
                   <h4 class='feel-tgVP4P'>
                     100% de satisfacción
@@ -102,7 +113,7 @@
                 </div>
               </div>
               <div class='feel-43huuL'>
-                <img class='five-stars' src='/static/svg/medal.svg' alt='Medal' width={50} height={50} />
+                <img class='five-stars' src='./static/svg/medal.svg' alt='Medal' width={50} height={50} />
                 <div class='feel-B61sTw'>
                   <h4 class='feel-tgVP4P'>
                     Mejor Calidad
@@ -123,7 +134,7 @@
           <div class='feel-1hiVHl'>
             <div class='feel-KP0v5x'>
               <div class='feel-nojBNA'>
-                <img class='dry-clothes' src='/static/dry-clothes.png' alt='Tech' width={600} height={600} />
+                <img class='dry-clothes' src='./static/dry-clothes.png' alt='Tech' width={600} height={600} />
                 <div class='feel-fbEFIA'></div>
               </div>
             </div>
@@ -137,7 +148,7 @@
     <div class='services-black'>
       <div class='services-YWo4aP'>
         <div class='services-U6do2C'>
-          <img class='dry-cleaner' src='/static/dry-cleaner.png' alt='' />
+          <img class='dry-cleaner' src='./static/dry-cleaner.png' alt='' />
           <div class='services-zv3zck'>
             <h5 class='services-QUx37W'>
               Tintoreria
@@ -159,7 +170,7 @@
           </div>
         </div>
         <div class='services-U6do2C'>
-          <img class='dry-cleaner' src='/static/carpet-washer.png' alt='' />
+          <img class='dry-cleaner' src='./static/carpet-washer.png' alt='' />
           <div class='services-zv3zck'>
             <h5 class='services-QUx37W'>
               Limpieza de Alfombras
@@ -181,7 +192,7 @@
           </div>
         </div>
         <div class='services-U6do2C'>
-          <img class='dry-cleaner' src='/static/leather_cleaning.png' alt='' />
+          <img class='dry-cleaner' src='./static/leather_cleaning.png' alt='' />
           <div class='services-zv3zck'>
             <h5 class='services-QUx37W'>
               Limpieza de Cuero
@@ -374,23 +385,15 @@
           y si tienes alguna duda o sugerencia, no dudes en contactarnos
         </p>
       </div>
-      <form>
+      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST" autocomplete="on">
         <div class='comments-cumbBQ'>
           <div class='comments-LXFm0f'>
-            <div class='comments-6xJFPJ'>
-              <div class='comments-RwbXJ4'>
-                <label for='' class='comments-daCavu'>
-                  Nombre
-                </label>
-                <input required type='text' name='user_' class='comments-Gdedzz' />
-              </div>
-            </div>
             <div class='comments-6xJFPJ'>
               <div class='comments-RwbXJ4'>
                 <label for='email' class='comments-daCavu'>
                   Email
                 </label>
-                <input required type='email' name='user_email' class='comments-Gdedzz' />
+                <input required type='email' for="email" name='email' class='comments-Gdedzz' />
               </div>
             </div>
             <div class='comments-zJoLgJ'>
@@ -398,11 +401,11 @@
                 <label for='message' class='comments-daCavu'>
                   Mensaje
                 </label>
-                <textarea required name='message' class='comments-Gdedzz'></textarea>
+                <textarea required name='comentario' for="comentario" class='comments-Gdedzz2'></textarea>
               </div>
             </div>
             <div class='comments-zJoLgJ'>
-              <button type='submit' value='Send' class='comments-MvRVvw'>
+              <button type='submit' name='Enviar' value='Enviar' class='comments-MvRVvw'>
                 Enviar Mensaje
               </button>
             </div>
@@ -416,7 +419,7 @@
     <div class='footer-xlE1cw'>
       <div class='footer-YYWlWo'>
         <div class='footer-7GIQa3'>
-          <img src='/static/svg/MCL.svg' class='footer-8eXE9L' alt='Laundry Miss Clean Logo' />
+          <img src='./static/svg/MCL.svg' class='footer-8eXE9L' alt='Laundry Miss Clean Logo' />
         </div>
         <div class='footer-loQjmt'>
           <div>
@@ -495,6 +498,21 @@
     </div>
   </footer>
 
-</body>
+  <?php
+      
+      if(isset($_REQUEST['Enviar'])){
 
+          $email=$_POST['email'];
+          $comentario=$_POST['comentario'];
+          $insert = 'insert into comentarios(email,comentario) values (:email,:comentario)';
+          $insert = $db->connect()->prepare($insert);
+          $insert->bindParam('email',$email, PDO::PARAM_STR,120);
+          $insert->bindParam('comentario',$comentario, PDO::PARAM_STR,350);
+          $insert->execute();
+          echo 'Registro agregado';
+      }
+
+    ?>
+
+</body>
 </html>
