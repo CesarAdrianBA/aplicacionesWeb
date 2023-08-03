@@ -20,15 +20,15 @@
     <?php
         
         include('connection.php');
-        $nombre=$correo=$nivel=$password='';
+        $nombre=$apellidoP=$apellidoM=$correo=$password='';
         $db=new Database();
 
     ?>
 
-    <header class="header">
+    <header class="header"> 
         <nav>
         <div class="logo">
-            <img src="static/svg/MCL.svg" alt="Miss Laundry Logo" width="100">
+            <img src="./static/svg/MCL.svg" alt="Miss Laundry Logo" width="100">
         </div>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">&#9776;</label>
@@ -37,67 +37,77 @@
             <li><a href="./about.php">Nosotros</a></li>
             <li><a href="./services.php">Servicios</a></li>
             <li><a href="./index.php#comments">Contacto</a></li>
+            <li><a href="./login.php">login</a></li>
         </ul>
         </nav>
     </header>
 
-    <div class="login">
-        <div class="form-container">
+    <div class="container container-fluid login-container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-5 form-login-container text-center form-container">
+                <img src="./static/svg/MCL.svg" alt="logo" class="logo">
 
-            <h1 class="title">Registro</h1>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" class="form" method="POST" autocomplete="on">
-            
-                <div>
-                    <label for="nombre" class="name">Nombre</label>
-                    <input type="text" id="name" name="nombre" placeholder="*Cesar" class="input input-name">
-    
-                    <label for="email" class="email">Correo</label>
-                    <input type="text" id="email" name="correo" placeholder="example@platzi.com" class="input input-email">
+                <h1 class="login-title">Registro</h1>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" class="form" method="POST" autocomplete="on">
 
-                    <label for="nivel" class="nivel">nivel</label>
-                    <input type="number" id="nivel" name="nivel" placeholder="0" class="input input-nivel">
-    
-                    <label for="password" class="password">Contraseña</label>
-                    <input type="password" id="password" name="password" placeholder="**********" class="input input-password">
-                </div>
-                
+                    <div>
+                        <label for="nombre" class="login-subtitle">Nombre</label>
+                        <input type="text" id="name" name="nombre" placeholder="*Cesar" class="input-login">
+                        
+                        <label for="apellidoP" class="login-subtitle">Apellido Paterno</label>
+                        <input type="text" id="lastname1" name="apellidoP" placeholder="*Buenrostro" class="input-login">
+                        
+                        <label for="apellidoM" class="login-subtitle">Apellido Materno</label>
+                        <input type="text" id="lastname2" name="apellidoM" placeholder="*Alvarez" class="input-login">
 
-                <input type="submit" value="Crear" name="Crear" class="primary-button login-button">
-            </form>
+                        <label for="email" class="login-subtitle">Correo</label>
+                        <input type="text" id="email" name="correo" placeholder="example@correo.com" class="input-login">
+
+                        <label for="password" class="login-subtitle">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="**********" class="input-login">
+                    </div>
+                    <input type="submit" value="Crear" name="Crear" class="signup-button button-login border-button">
+                </form>
+            </div>
         </div>
     </div>
 
     <?php
-    
-    
-    if(isset($_REQUEST['Crear'])){
-
-        print $nombre;
-
-        $nombre=$_POST['nombre'];
-        $correo=$_POST['correo'];
-        $nivel=$_POST['nivel'];
-        $password=$_POST['password'];
-
         
-        $query=$db->connect()->prepare('select correo from usuarios where correo = :correo');
-        $query->execute(['correo'=>$correo]);
-        $row=$query->fetch(PDO::FETCH_NUM);
-        if($query->rowCount()<=0){
+        if(isset($_REQUEST['Crear'])){
 
-            $insert = 'insert into usuarios(nombre,correo,nivel,password) values (:nombre,:correo,:nivel,:password)';
-            $insert = $db->connect()->prepare($insert);
-            $insert->bindParam('nombre',$nombre, PDO::PARAM_STR,255);
-            $insert->bindParam('correo',$correo, PDO::PARAM_STR,255);
-            $insert->bindParam('nivel',$nivel, PDO::PARAM_STR);
-            $insert->bindParam('password',$password, PDO::PARAM_STR,255);
-            $insert->execute();
-            echo 'Registro agregado';
+            print $nombre;
 
-        }else if($query->rowCount()>0){
-            echo "EL CORREO YA EXISTE!!!!";
+            $nombre=$_POST['nombre'];
+            $apellidoP=$_POST['apellidoP'];
+            $apellidoM=$_POST['apellidoM'];
+            $correo=$_POST['correo'];
+            $password=$_POST['password'];
+
+            
+            $query=$db->connect()->prepare('select Correo from clientes where Correo = :correo');
+            $query->execute(['correo'=>$correo]);
+            $row=$query->fetch(PDO::FETCH_NUM);
+            if($query->rowCount()<=0){
+
+                $insert = 'insert into clientes(Nombre, Apellido_Paterno, Apellido_Materno,Correo, Contraseña) values (:nombre, :apellidoP, :apellidoM,:correo,:password)';
+                $insert = $db->connect()->prepare($insert);
+                $insert->bindParam('nombre',$nombre, PDO::PARAM_STR,255);
+                $insert->bindParam('apellidoP',$apellidoP, PDO::PARAM_STR,255);
+                $insert->bindParam('apellidoM',$apellidoM, PDO::PARAM_STR,255);
+                $insert->bindParam('correo',$correo, PDO::PARAM_STR,255);
+                $insert->bindParam('password',$password, PDO::PARAM_STR,255);
+                $insert->execute();
+                echo 'Registro agregado';
+
+                
+                header('Location:./login.php');
+                exit();
+
+            }else if($query->rowCount()>0){
+                echo "EL CORREO YA EXISTE!!!!";
+            }
         }
-    }
 
     ?>
 

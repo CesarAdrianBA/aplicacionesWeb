@@ -17,10 +17,16 @@
 </head>
 <body>
 
+  <?php
+    include('connection.php');
+    $email=$password="";
+    $db=new Database();
+  ?>
+
   <header class="header">
     <nav>
       <div class="logo">
-        <img src="static/svg/MCL.svg" alt="Miss Laundry Logo" width="100">
+        <img src="./static/svg/MCL.svg" alt="Miss Laundry Logo" width="100">
       </div>
       <input type="checkbox" id="menu-toggle">
       <label for="menu-toggle" class="menu-icon">&#9776;</label>
@@ -29,27 +35,68 @@
         <li><a href="./about.php">Nosotros</a></li>
         <li><a href="./services.php">Servicios</a></li>
         <li><a href="./index.php#comments">Contacto</a></li>
+        <li><a href="./login.php">Log in</a></li>
       </ul>
     </nav>
   </header>
 
-    <div class="login container container-fluid login-container">
-      <div class="form-container">
-        <img src="./src/Logo/logo_yard_sale.svg" alt="logo" class="logo">
-  
-        <form action="/" class="form">
-          <label for="email" class="label">Email</label>
-          <input type="text" id="email" placeholder="Correo@example.cm" class="input input-email">
-  
-          <label for="password" class="label">Password</label>
-          <input type="password" id="password" placeholder="*********" class="input input-password">
-  
-          <input type="submit" value="Log in" class="primary-button login-button">
-          <a href="/">Olvide mi Contraseña</a>
-        </form>
-  
-        <a href="./signup.php"><button class="secondary-button signup-button">Sign up</button></a>
+    <div class="container container-fluid login-container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-5 form-login-container text-center">
+          <img src="./static/svg/MCL.svg" alt="logo" class="logo">
+    
+          <h2 class="login-title">Login</h2>
+          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" class="form" method="POST" autocomplete="on">
+
+            <label for="email" class="login-subtitle">Email</label>
+            <input type="text" id="email" name="email" placeholder="example@correo.com" class="input-login">
+    
+            <br>
+
+            <label for="password" class="login-subtitle">Password</label>
+            <input type="password" id="password" name="password" placeholder="*********" class="input-login">
+
+            <br>
+    
+            <input type="submit" value="Login" name="Login" class="button-login border-button">
+            
+          </form>
+
+          <a href="/" class="forgot-pass">Olvide mi Contraseña</a>
+          
+          <a href="./signup.php"><button class="signup-button button-login border-button">Sign up</button></a>
+        </div>
       </div>
     </div>
+
+    <?php
+        
+        if(isset($_REQUEST['Login'])){
+
+            if (isset($_POST['email']) && isset($_POST['password'])) {
+
+              $correo=$_POST['email'];
+              $password=$_POST['password'];
+
+              
+              $query=$db->connect()->prepare('select * from clientes where Correo = :email AND Contraseña = :password' );
+              $query->execute(['email'=>$correo, 'password'=>$password]);
+              $row=$query->fetch(PDO::FETCH_NUM);
+              if($row == true){
+
+                header('Location:./admin/Altas.php');
+                exit();
+
+              }else{
+                  echo '
+                  <script type="text/javascript">
+                  alert("Usuario o password incorrecto");
+                  </script>' ;
+              }
+            }
+        }
+
+    ?>
+
   </body>
 </html>

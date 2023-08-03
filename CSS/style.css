@@ -1252,3 +1252,63 @@ body::-webkit-scrollbar-thumb {
   padding-top: 20vh;
   padding-bottom: 15vh;
 }
+.login-title{
+  font-family: PoppinsBold;
+  font-size: 2.5em;
+  color: #0F74BA;
+}
+.login-subtitle{
+  width: 100%;
+  font-family: Satoshi;
+  font-size:1.6em;
+  line-height: 24px;
+  color: #212529;
+  padding-bottom: .5em;
+}
+.form-login-container .logo{
+  height: 16vh;
+}
+.form-login-container label{
+  margin-top: 8vh;
+}
+.form-login-container .input-login{
+  border: solid 3px #1e94e955;
+  border-radius: 4px;
+  width: 60%;
+  height: 5vh;
+  text-align: center;
+  font-size: 1.2em;
+}
+.button-login{
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px 8px 12px;
+  font-size: 1.2em;
+  line-height: 20px;
+  font-family: PoppinsMedium;
+  user-select: none;
+  text-align: center;
+  border: #0F74BA solid 2px;
+  color: #0F74BA;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  border-radius: 8px; 
+}
+.button-login{
+  background-color: #0F74BA;
+  color: #fff;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.forgot-pass{
+  display: block;
+  margin-top: 4vh;
+}
+.signup-button{
+  background-color: #fff;
+  color: #0F74BA;
+  margin: 6vh 0 4vh;
+}
+/*CRUD*/

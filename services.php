@@ -19,7 +19,7 @@
   <header class="header">
     <nav>
       <div class="logo">
-        <img src="static/svg/MCL.svg" alt="Miss Laundry Logo" width="100">
+        <img src="./static/svg/MCL.svg" alt="Miss Laundry Logo" width="100">
       </div>
       <input type="checkbox" id="menu-toggle">
       <label for="menu-toggle" class="menu-icon">&#9776;</label>
@@ -28,6 +28,7 @@
         <li><a href="./about.php">Nosotros</a></li>
         <li><a href="./services.php">Servicios</a></li>
         <li><a href="./index.php#comments">Contacto</a></li>
+        <li><a href="./login.php">login</a></li>
       </ul>
     </nav>
   </header>
@@ -44,7 +45,7 @@
                 
                 <div class="card-p col-3 text-center">
                     <div class="card-title">
-                        <h3>básica</h3>
+                        <h3>Básica</h3>
                         <p>Nuestro plan básico</p>
                     </div>
 
