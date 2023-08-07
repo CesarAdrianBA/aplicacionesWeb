@@ -37,7 +37,7 @@
             <li><a href="./about.php">Nosotros</a></li>
             <li><a href="./services.php">Servicios</a></li>
             <li><a href="./index.php#comments">Contacto</a></li>
-            <li><a href="./login.php">login</a></li>
+            <li><a href="./login.php">Log in</a></li>
         </ul>
         </nav>
     </header>

@@ -57,6 +57,11 @@
 									<span class="ms-1 d-none d-sm-inline">Eliminar Usuario</span>
 								</a>
 							</li>
+							<li class="nav-item">
+								<a href="../index.php" class="nav-link align-middle px-0">
+									<span class="ms-1 d-none d-sm-inline">Salir</span>
+								</a>
+							</li>
 						</ul>
 				</div>
 			</div>

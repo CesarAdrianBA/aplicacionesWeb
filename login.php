@@ -45,7 +45,7 @@
         <div class="col-5 form-login-container text-center">
           <img src="./static/svg/MCL.svg" alt="logo" class="logo">
     
-          <h2 class="login-title">Login</h2>
+          <h2 class="login-title">Log in</h2>
           <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" class="form" method="POST" autocomplete="on">
 
             <label for="email" class="login-subtitle">Email</label>
