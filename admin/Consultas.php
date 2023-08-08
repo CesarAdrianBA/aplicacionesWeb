@@ -28,22 +28,22 @@
 						<ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
 							<li class="nav-item">
 								<a href="./Altas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Agregar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Agregar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Cambios.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Modificar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Modificar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Consultas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Consultar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Consultar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Bajas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Eliminar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Eliminar</span>
 								</a>
 							</li>
 							<li class="nav-item">
@@ -55,110 +55,112 @@
 				</div>
 			</div>
 
-			<div class="content col-9">
-      <h1 class="text-center"> Consulta de Registro</h1>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" autocomplete="on">
-        <fieldset class="text-center"><legend>Datos de consultas</legend>
-        <label for="correo"> Correo a consultar:</label>
-        <input type="texto" name="correo" id="correo">
-        <input type="submit" name="consultar" id="consultar" value="Consultar Correo">
-        <input type="submit" name="todo" id="todo" value="Mostrar todos los registros">
-    </fieldset>
-    </form>
-        <?php
-         include("conexion.php");
-         $db=new Database();
-         if(isset($_REQUEST['consultar'])){
-             $correo=isset($_REQUEST['correo']) ? $_REQUEST['correo'] : null;
-             $query=$db->connect()->prepare('select * from clientes where correo = :correo');
-             $query->setFetchMode(PDO::FETCH_ASSOC);
-             $query->execute(['correo'=>$correo]);
-             $row =$query->fetch();
+			<div class="container container-fluid login-container col-9">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-8 form-crud-container text-center">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" autocomplete="on">
+                            <fieldset class="text-center"><legend>Datos de consultas</legend>
+                                <label class="crud-subtitle" for="correo"> Correo a consultar:</label>
+                                <input type="texto" class="input-crud" name="correo" id="correo">
+                                <input type="submit" class="signup-button button-login border-button" name="consultar" id="consultar" value="Consultar Correo">
+                                <input type="submit" class="signup-button button-login border-button" name="todo" id="todo" value="Mostrar todo">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
 
-             if($query->rowCount()<=0){
-                 echo "<h4>Correo no encontrado</h4>";}
-                 else if ($query->rowCount()>0){
-              
-                 print"<h5>Registro encontrado: </h5>";
-                 print"<hr>";
-                 print"<table>";
+                <?php
+                    include("conexion.php");
+                    $db=new Database();
+                    if(isset($_REQUEST['consultar'])){
+                        $correo=isset($_REQUEST['correo']) ? $_REQUEST['correo'] : null;
+                        $query=$db->connect()->prepare('select * from clientes where correo = :correo');
+                        $query->setFetchMode(PDO::FETCH_ASSOC);
+                        $query->execute(['correo'=>$correo]);
+                        $row =$query->fetch();
 
-                 print"<tr>";
-                     print"<th>id: </th>";
-                     print"<th>".$row['Id']."</th>";
-                 print"</tr>";
+                        if($query->rowCount()<=0){
+                            echo "<h4>Correo no encontrado</h4>";}
+                            else if ($query->rowCount()>0){
+                        
+                            print"<h5>Registro encontrado: </h5>";
+                            print"<hr>";
+                            print"<table class='tabla-reg'>";
 
-                 
-                 print"<tr>";
-                     print"<th>nombre: </th>";
-                     print"<th>".$row['Nombre']."</th>";
-                 print"</tr>";
-                 
-                 print"<tr>";
-                     print"<th>Apellido Paterno: </th>";
-                     print"<th>".$row['Apellido_Paterno']."</th>";
-                 print"</tr>";
+                            print"<tr>";
+                                print"<th>id: </th>";
+                                print"<th>".$row['Id']."</th>";
+                            print"</tr>";
 
-                 
-                 print"<tr>";
-                     print"<th>Apellido_Materno: </th>";
-                     print"<th>".$row['Apellido_Materno']."</th>";
-                 print"</tr>";
-                 
-                 print"<tr>";
-                     print"<th>correo: </th>";
-                     print"<th>".$row['Correo']."</th>";
-                 print"</tr>";
-                 
-                 print"<tr>";
-                     print"<th>Contraseña: </th>";
-                     print"<th>".$row['Contraseña']."</th>";
-                 print"</tr>";
+                            
+                            print"<tr>";
+                                print"<th>nombre: </th>";
+                                print"<th>".$row['Nombre']."</th>";
+                            print"</tr>";
+                            
+                            print"<tr>";
+                                print"<th>Apellido Paterno: </th>";
+                                print"<th>".$row['Apellido_Paterno']."</th>";
+                            print"</tr>";
 
-
-                 print"</table>";
-                 print "<hr/>";
-             }//rowCount
-         }//button buscar
-         if(isset($_REQUEST['todo'])){
-            $query = $db->connect()->prepare('select*from clientes');
-            $query->setFetchMode(PDO::FETCH_ASSOC);
-            $query->execute();
-            if($query->rowCount()<0){
-                print "NO HAY INFORMACION DISPONIBLE";
-            }
-            else if ($query->rowCount()>=0){
-                print "<br/><br/><hr/>";
-                print "USUARIOS REGISTRADOS";
-                print "<br/><br/><hr/><hr/>";
-                print "<table>";
-                print "<tr>";
-                print "<th>ID</th>";
-                print "<th>Nombre</th>";
-                print "<th>Apellido Paterno</th>";
-                print "<th>Apellido Materno</th>";
-                print "<th>Correo<th>";
-                print "<th>Contraseña<th>";
-                print "</tr>";
-                while($row = $query-> fetch()){
-                print "<tr>";
-                print "<td>" .$row ['Id']. "</td>";
-                print "<td>" .$row ['Nombre']. "</td>";
-                print "<td>" .$row ['Apellido_Paterno']. "</td>";
-                print "<td>" .$row ['Apellido_Materno']. "</td>";
-                print "<td>" .$row ['Correo']. "</td>";
-                print "<td>" .$row ['Contraseña']. "</td>";
-                print "</tr>";
-            
-            }
-                print "</table>";
-            }
-         }
-         ?>
-			</div>
+                            
+                            print"<tr>";
+                                print"<th>Apellido_Materno: </th>";
+                                print"<th>".$row['Apellido_Materno']."</th>";
+                            print"</tr>";
+                            
+                            print"<tr>";
+                                print"<th>correo: </th>";
+                                print"<th>".$row['Correo']."</th>";
+                            print"</tr>";
+                            
+                            print"<tr>";
+                                print"<th>Contraseña: </th>";
+                                print"<th>".$row['Contraseña']."</th>";
+                            print"</tr>";
 
 
-		</div>
+                            print"</table>";
+                            print "<hr/>";
+                        }//rowCount
+                    }//button buscar
+                    if(isset($_REQUEST['todo'])){
+                        $query = $db->connect()->prepare('select*from clientes');
+                        $query->setFetchMode(PDO::FETCH_ASSOC);
+                        $query->execute();
+                        if($query->rowCount()<0){
+                            print "NO HAY INFORMACION DISPONIBLE";
+                        }
+                        else if ($query->rowCount()>=0){
+                            print "<br/><br/><hr/>";
+                            print "USUARIOS REGISTRADOS";
+                            print "<br/><br/><hr/><hr/>";
+                            print "<table class='tabla-reg'>";
+                            print "<tr>";
+                            print "<th>ID</th>";
+                            print "<th>Nombre</th>";
+                            print "<th>Apellido Paterno</th>";
+                            print "<th>Apellido Materno</th>";
+                            print "<th>Correo</th>";
+                            print "<th>Contraseña</th>";
+                            print "</tr>";
+                            while($row = $query-> fetch()){
+                            print "<tr>";
+                            print "<td>" .$row ['Id']. "</td>";
+                            print "<td>" .$row ['Nombre']. "</td>";
+                            print "<td>" .$row ['Apellido_Paterno']. "</td>";
+                            print "<td>" .$row ['Apellido_Materno']. "</td>";
+                            print "<td>" .$row ['Correo']. "</td>";
+                            print "<td>" .$row ['Contraseña']. "</td>";
+                            print "</tr>";
+                        
+                        }
+                            print "</table>";
+                        }
+                    }
+                ?>
+            </div>
+        </div>
 	</div>
 
 

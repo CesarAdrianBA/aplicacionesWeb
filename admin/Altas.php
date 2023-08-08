@@ -30,7 +30,7 @@
 
 
 	<div class="container-fluid">
-		<div class="row content">
+		<div class="row">
 			<div class="col-3 px-0 bg-dark">
 				<div class="d-flex flex-column align-items-center px-3 pt-2 text-white min-vh-100">
 						<a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -39,22 +39,22 @@
 						<ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
 							<li class="nav-item">
 								<a href="./Altas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Agregar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Agregar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Cambios.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Modificar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Modificar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Consultas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Consultar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Consultar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Bajas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Eliminar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Eliminar</span>
 								</a>
 							</li>
 							<li class="nav-item">
@@ -66,41 +66,40 @@
 				</div>
 			</div>
 
-			<div class="content col-9">
-				<h1 class=text-center>Alta de usuarios</h1>
-					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" autocomplete="on">
-					<fieldset  class="text-center"> 
-					<legend class=text-center> Alta de usuarios</legend>
-					
-					<label for="id"> Folio:</label>
-					<input type="text" id="id" name="id" readonly size="5" value="<?php echo $numero; ?>" autofocus>
-					<br/>
-					<br/>
-				
-					<label  for= "Nombre">Nombre:</label>
-					<input type="text" id="Nombre" name="Nombre" placeholder="Solo mayusculas" >
-					<br/>
-					<br/>            
-					<label for= "Apellido_Paterno">Apellido Paterno</label>
-					<input type="text" id="Apellido_Paterno" name="Apellido_Paterno" placeholder="Solo letras" >
-					<br/>
-					<br/>            
-					<label for= "Apellido_Materno">Apellido Materno</label>
-					<input type="text" id="Apellido_Materno" name="Apellido_Materno" placeholder="Solo letras" >
-					<br/>
-					<br/>   
-					<label for= "Correo">Correo</label>
-					<input type="email" id="Correo" name="Correo" placeholder="Email">
-					<br/>
-					<br/>   
-					<label for= "Contrasena">Contrasena</label>
-					<input type="password" id="Contrasena" name="Contrasena" placeholder="*****">
+			<div class="container container-fluid login-container col-9">
+				<div class="row d-flex justify-content-center">
+					<div class="col-8 form-crud-container text-center">
+						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" autocomplete="on">
+							<fieldset  class="text-center"> 
+								<legend class=text-center> Alta de usuarios</legend>
+								<br>
+								<br>
+								<br>
+							
+								<label class="crud-subtitle"  for= "Nombre">Nombre:</label>
+								<input type="text" class="input-crud" id="Nombre" name="Nombre" placeholder="Solo mayusculas" >
+								<br/>
+								<br/>            
+								<label class="crud-subtitle" for= "Apellido_Paterno">Apellido Paterno</label>
+								<input type="text" class="input-crud" id="Apellido_Paterno" name="Apellido_Paterno" placeholder="Solo letras" >
+								<br/>
+								<br/>            
+								<label class="crud-subtitle" for= "Apellido_Materno">Apellido Materno</label>
+								<input type="text" class="input-crud" id="Apellido_Materno" name="Apellido_Materno" placeholder="Solo letras" >
+								<br/>
+								<br/>   
+								<label class="crud-subtitle" for= "Correo">Correo</label>
+								<input type="email" class="input-crud" id="Correo" name="Correo" placeholder="Email">
+								<br/>
+								<br/>   
+								<label class="crud-subtitle" for= "Contrasena">Contrasena</label>
+								<input type="password" class="input-crud" id="Contrasena" name="Contrasena" placeholder="*****">
 
-
-
-				<input type="submit" value="Registrar" name="Enviar">
-				</fieldset>
-				</form>
+								<input type="submit" class="signup-button button-login border-button" value="Registrar" name="Enviar">
+							</fieldset>
+						</form>
+					</div>
+				</div>
 			</div>
 
 

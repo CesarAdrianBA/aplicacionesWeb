@@ -39,22 +39,22 @@
 						<ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
 							<li class="nav-item">
 								<a href="./Altas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Agregar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Agregar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Cambios.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Modificar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Modificar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Consultas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Consultar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Consultar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Bajas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Eliminar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Eliminar</span>
 								</a>
 							</li>
 							<li class="nav-item">
@@ -66,107 +66,114 @@
 				</div>
 			</div>
 
-			<div class="content col-9">
-
-        <h1 class="text-center">Cambio de datos</h1>
-        <form class="text-center" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-        
-        <label for="Correo">Correo:</label>
-        <input type= "text" name="Correo" id="Correo" value="<?php echo $Correo; ?>">
-        <input type= "submit" name="buscar" id="buscar" value="Buscar">
-        <br/><br/><br/>
-        
-        <?php
-          if (isset($_REQUEST['buscar'])){
-              $Correo=isset($_REQUEST['Correo']) ? $_REQUEST['Correo']: null;
-              $query=$db->connect()->prepare("select * from clientes where Correo = :Correo");
-              $query->setFetchMode(PDO::FETCH_ASSOC);
-              $query ->execute(['Correo'=>$Correo]);
-              $row = $query ->fetch();
-              
-
-              if($query->rowCount()<=0){
-                  echo "Correo no encontrado";
-              }
-              elseif($query->rowCount()>=0){
+			<div class="container container-fluid login-container col-9">
+				<div class="row d-flex justify-content-center">
+					<div class="col-8 form-crud-container text-center">
+						<form class="text-center" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+							<fieldset  class="text-center"> 
+								<legend class=text-center> Modificar usuarios</legend>
+									<label class="crud-subtitle" for="Correo">Correo:</label>
+									<input type= "text" class="input-crud" name="Correo" id="Correo" value="<?php echo $Correo; ?>">
+									<input type= "submit" class="signup-button button-login border-button" name="buscar" id="buscar" value="Buscar">
+							<br>
 
 
-                  echo '<label>Nombre:</label>';
-                  echo '<input type "text" name="Nombre" value="' .$row['Nombre'].'"  size="20"><br/><br/>';
+							</fieldset>
+						</form>
+					</div>
+				</div>
+				
+				<?php
+					if (isset($_REQUEST['buscar'])){
+					$Correo=isset($_REQUEST['Correo']) ? $_REQUEST['Correo']: null;
+					$query=$db->connect()->prepare("select * from clientes where Correo = :Correo");
+					$query->setFetchMode(PDO::FETCH_ASSOC);
+					$query ->execute(['Correo'=>$Correo]);
+					$row = $query ->fetch();
+					
+
+					if($query->rowCount()<=0){
+						echo "Correo no encontrado";
+					}
+					elseif($query->rowCount()>=0){
+						echo '<form action="" method="post" autocomplete="on">';
+
+						echo '<label class="crud-subtitle">Nombre:</label>';
+						echo '<input type="text" class="input-crud" name="Nombre" value="' .$row['Nombre'].'"  size="20"><br/><br/>';
 
 
-                  echo '<label>Apellido_Paterno:</label>';
-                  echo '<input type="text" name="Apellido_Paterno"  value="' .$row['Apellido_Paterno'].'" size="20" autofocus><br/><br/>';
+						echo '<label class="crud-subtitle">Apellido_Paterno:</label>';
+						echo '<input type="text" class="input-crud" name="Apellido_Paterno"  value="' .$row['Apellido_Paterno'].'" size="20" autofocus><br/><br/>';
 
 
-                  echo '<label>Apellido_Materno:</label>';
-                  echo '<input type="text" name="Apellido_Materno"  value="' .$row['Apellido_Materno'].'" size="20" autofocus><br/><br/>';
+						echo '<label class="crud-subtitle">Apellido_Materno:</label>';
+						echo '<input type="text" class="input-crud" name="Apellido_Materno"  value="' .$row['Apellido_Materno'].'" size="20" autofocus><br/><br/>';
 
 
-                  echo '<label>correo:</label>';
-                  echo '<input type="text" name="Correo" value="' .$row['Correo'].'"><br/><br/>';
+						echo '<label class="crud-subtitle">correo:</label>';
+						echo '<input type="text" class="input-crud" name="Correo" value="' .$row['Correo'].'"><br/><br/>';
 
 
-                  echo '<label>Contraseñ:</label>';
-                  echo '<input type="text" name="Contrasena" value="' .$row['Contraseña'].'"><br/><br/>';
+						echo '<label class="crud-subtitle">Contraseñ:</label>';
+						echo '<input type="password" class="input-crud" name="Contrasena" value="' .$row['Contraseña'].'"><br/><br/>';
 
 
-                  echo '<input type="submit" name="cambiar" id="cambiar" value="Cambiar Datos">';
-                  
-              }
+						echo '<input type="submit" class="signup-button button-login border-button" name="cambiar" id="cambiar" value="Cambiar">';
+						
+						echo '</form>';
+					}
 
-            }
-			if (isset($_REQUEST['cambiar'])) {
-				$Nombre = $_POST['Nombre'];
-				$Apellido_Paterno = $_POST['Apellido_Paterno'];
-				$Apellido_Materno = $_POST['Apellido_Materno'];
-				$Correo = $_POST['Correo'];
-				$Contrasena = $_POST['Contrasena'];
-			
-				$sql = "UPDATE clientes SET Nombre=?, Apellido_Paterno=?, Apellido_Materno=?, Contraseña=?, Correo=? WHERE Correo=?";
-				$stmt = $db->connect()->prepare($sql);
-				$stmt->execute([$Nombre, $Apellido_Paterno, $Apellido_Materno, $Contrasena, $Correo, $Correo]);
-				echo "Los datos se actualizaron correctamente!!";
+					}
+					if (isset($_REQUEST['cambiar'])) {
+						$Nombre = $_POST['Nombre'];
+						$Apellido_Paterno = $_POST['Apellido_Paterno'];
+						$Apellido_Materno = $_POST['Apellido_Materno'];
+						$Correo = $_POST['Correo'];
+						$Contrasena = $_POST['Contrasena'];
+					
+						$sql = "update clientes SET Nombre=?,Apellido_Paterno=?,Apellido_Materno=?,Contraseña=?,Correo=? WHERE Correo=?";
+						$stmt = $db->connect()->prepare($sql);
+						$stmt->execute([$Nombre, $Apellido_Paterno, $Apellido_Materno, $Contrasena, $Correo, $Correo]);
+						echo "Los datos se actualizaron correctamente!!";
+					}
+					
+
+				?>
+			</div>
+
+		</div>
+	</div>
+
+		<?php
+			if (isset($_POST['Enviar'])) {
+					$Nombre = $_POST['Nombre'];
+					$Apellido_Paterno = $_POST['Apellido_Paterno'];
+					$Apellido_Materno = $_POST['Apellido_Materno'];
+					$Correo = $_POST['Correo'];
+					$Contrasena = $_POST['Contrasena'];
+
+					// Asumiendo que $db representa la conexión a la base de datos
+					$insert = "INSERT INTO clientes (Nombre, Apellido_Paterno, Apellido_Materno, Correo, Contrasena) VALUES (:Nombre, :Apellido_Paterno, :Apellido_Materno, :Correo, :Contrasena)";
+					$insertQuery = $db->connect()->prepare($insert);
+
+					// Asignar los valores de los parámetros
+					$insertQuery->bindParam(':Nombre', $Nombre, PDO::PARAM_STR, 80);
+					$insertQuery->bindParam(':Apellido_Paterno', $Apellido_Paterno, PDO::PARAM_STR, 50);
+					$insertQuery->bindParam(':Apellido_Materno', $Apellido_Materno, PDO::PARAM_STR, 50);
+					$insertQuery->bindParam(':Correo', $Correo, PDO::PARAM_STR, 120);
+					$insertQuery->bindParam(':Contrasena', $Contrasena, PDO::PARAM_STR, 100);
+
+					// Ejecutar la consulta de inserción
+					$insertQuery->execute();
+
+					// Verificar si la inserción fue exitosa
+					if (!$insertQuery) {
+							echo "Error: ", $insertQuery->errorInfo();
+					} else {
+							echo "Registro agregado!!!";
+					}
 			}
-			
-
-            ?>
-            </div>
-
-
-      </div>
-    </div>
-
-	<?php
-		if (isset($_POST['Enviar'])) {
-				$Nombre = $_POST['Nombre'];
-				$Apellido_Paterno = $_POST['Apellido_Paterno'];
-				$Apellido_Materno = $_POST['Apellido_Materno'];
-				$Correo = $_POST['Correo'];
-				$Contrasena = $_POST['Contrasena'];
-
-				// Asumiendo que $db representa la conexión a la base de datos
-				$insert = "INSERT INTO clientes (Nombre, Apellido_Paterno, Apellido_Materno, Correo, Contrasena) VALUES (:Nombre, :Apellido_Paterno, :Apellido_Materno, :Correo, :Contrasena)";
-				$insertQuery = $db->connect()->prepare($insert);
-
-				// Asignar los valores de los parámetros
-				$insertQuery->bindParam(':Nombre', $Nombre, PDO::PARAM_STR, 80);
-				$insertQuery->bindParam(':Apellido_Paterno', $Apellido_Paterno, PDO::PARAM_STR, 50);
-				$insertQuery->bindParam(':Apellido_Materno', $Apellido_Materno, PDO::PARAM_STR, 50);
-				$insertQuery->bindParam(':Correo', $Correo, PDO::PARAM_STR, 120);
-				$insertQuery->bindParam(':Contrasena', $Contrasena, PDO::PARAM_STR, 100);
-
-				// Ejecutar la consulta de inserción
-				$insertQuery->execute();
-
-				// Verificar si la inserción fue exitosa
-				if (!$insertQuery) {
-						echo "Error: ", $insertQuery->errorInfo();
-				} else {
-						echo "Registro agregado!!!";
-				}
-		}
-	?>
+		?>
 
 </body>
 </html>

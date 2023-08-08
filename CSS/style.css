@@ -1271,7 +1271,7 @@ body::-webkit-scrollbar-thumb {
 .form-login-container label{
   margin-top: 8vh;
 }
-.form-login-container .input-login{
+.input-login{
   border: solid 3px #1e94e955;
   border-radius: 4px;
   width: 60%;
@@ -1312,3 +1312,29 @@ body::-webkit-scrollbar-thumb {
   margin: 6vh 0 4vh;
 }
 /*CRUD*/
+/*Altas*/
+.crud-subtitle{
+  text-align: left;
+  width: 20%;
+  font-family: Satoshi;
+  font-size:1.2em;
+  line-height: 24px;
+  color: #212529;
+}
+.input-crud{
+  border: solid 3px #1e94e955;
+  border-radius: 4px;
+  width: 70%;
+  height: 5vh;
+  text-align: center;
+  font-size: 1.2em;
+}
+.form-crud-container label{
+  margin-top: 1vh;
+}
+/*Tabla de mostrar registros*/
+.tabla-reg{
+  border-collapse: separate;
+  border-spacing: 40px 5px;
+  font-family: Satoshi;
+}

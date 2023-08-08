@@ -32,22 +32,22 @@
 						<ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
 							<li class="nav-item">
 								<a href="./Altas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Agregar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Agregar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Cambios.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Modificar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Modificar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Consultas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Consultar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Consultar</span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="./Bajas.php" class="nav-link align-middle px-0">
-									<span class="ms-1 d-none d-sm-inline">Eliminar Usuario</span>
+									<span class="ms-1 d-none d-sm-inline">Eliminar</span>
 								</a>
 							</li>
 							<li class="nav-item">
@@ -59,90 +59,91 @@
 				</div>
 			</div>
 
-			<div class="content col-9">
-          <h1 class=text-center>Eliminar usuarios</h1>
-          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" autocomplete="on">
-          <fieldset> 
-            <legend> Eliminar registro</legend>
-            <label for="correo">correo a buscar</label>
-            <input type="text" name="correo" id ="correo" value="<?php echo $correo; ?>">
-            <input type="submit" name="buscar" id="buscar">
-            
-            <?php
-                include("conexion.php");
-                $db=new Database();
-                if(isset($_REQUEST['buscar'])){
-                    $correo=isset($_REQUEST['correo']) ? $_REQUEST['correo'] : null;
-                    $query=$db->connect()->prepare('select * from clientes where correo = :correo');
-                    $query->setFetchMode(PDO::FETCH_ASSOC);
-                    $query->execute(['correo'=>$correo]);
-                    $row =$query->fetch();
+			<div class="container container-fluid login-container col-9">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-8 form-crud-container text-center">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" autocomplete="on">
+                            <fieldset> 
+                                <legend> Eliminar registro</legend>
+                                <label class="crud-subtitle" for="correo">Correo a buscar</label>
+                                <input type="text" class="input-crud" name="correo" id ="correo" value="<?php echo $correo; ?>">
+                                <input type="submit" class="signup-button button-login border-button" name="buscar" id="buscar">
+                                    
+                                <?php
+                                    include("conexion.php");
+                                    $db=new Database();
+                                    if(isset($_REQUEST['buscar'])){
+                                        $correo=isset($_REQUEST['correo']) ? $_REQUEST['correo'] : null;
+                                        $query=$db->connect()->prepare('select * from clientes where correo = :correo');
+                                        $query->setFetchMode(PDO::FETCH_ASSOC);
+                                        $query->execute(['correo'=>$correo]);
+                                        $row =$query->fetch();
 
-                    if($query->rowCount()<=0){
-                        echo "<h4>Correo no encontrado</h4>";
-                    }elseif ($query->rowCount()>0){
-                        print"<h5>Registro encontrado: </h5>";
-                        print"<hr>";
-                        print"<table>";
+                                        if($query->rowCount()<=0){
+                                            echo "<h4>Correo no encontrado</h4>";
+                                        }elseif ($query->rowCount()>0){
+                                            print"<h5>Registro encontrado: </h5>";
+                                            print"<hr>";
+                                            print"<table class='tabla-reg'>";
 
-                        print"<tr>";
-                            print"<th>id: </th>";
-                            print"<th>".$row['Id']."</th>";
-                        print"</tr>";
+                                            print"<tr>";
+                                                print"<th>id: </th>";
+                                                print"<th>".$row['Id']."</th>";
+                                            print"</tr>";
 
-                        
-                        print"<tr>";
-                            print"<th>Nombre: </th>";
-                            print"<th>".$row['Nombre']."</th>";
-                        print"</tr>";
-                        
-                        print"<tr>";
-                            print"<th>Apellido Paterno: </th>";
-                            print"<th>".$row['Apellido_Paterno']."</th>";
-                        print"</tr>";
+                                            
+                                            print"<tr>";
+                                                print"<th>Nombre: </th>";
+                                                print"<th>".$row['Nombre']."</th>";
+                                            print"</tr>";
+                                            
+                                            print"<tr>";
+                                                print"<th>Apellido Paterno: </th>";
+                                                print"<th>".$row['Apellido_Paterno']."</th>";
+                                            print"</tr>";
 
-                        
-                        print"<tr>";
-                            print"<th>Apellido Materno: </th>";
-                            print"<th>".$row['Apellido_Materno']."</th>";
-                        print"</tr>";
-
-
-                        print"<tr>";
-                            print"<th>Correo: </th>";
-                            print"<th>".$row['Correo']."</th>";
-                        print"</tr>";
+                                            
+                                            print"<tr>";
+                                                print"<th>Apellido Materno: </th>";
+                                                print"<th>".$row['Apellido_Materno']."</th>";
+                                            print"</tr>";
 
 
-                        print"<tr>";
-                        print"<th>fecha de registro: </th>";
-                        print"<th>".$row['Fecha_De_Registro']."</th>";
-                        print"</tr>";
+                                            print"<tr>";
+                                                print"<th>Correo: </th>";
+                                                print"<th>".$row['Correo']."</th>";
+                                            print"</tr>";
 
 
-                        print"</table>";
-                        print "<hr/>";
-                        print "<input type='submit' name='eliminar' value='Eliminar registro' id='eliminar'>";
-                    }//rowCount
-                }//button buscar
-                if(isset($_REQUEST['eliminar'])){
-                    $correo=isset($_REQUEST['correo']) ? $_REQUEST['correo'] : null;
-                    $query=$db->connect()->prepare('delete from clientes where correo= :correo');
-                    $query->execute(['correo'=>$correo]);
-                    if (!$query) {
-                        echo "Error: ".$query->errorInfo();
-                    }
-                    echo "<h5>Registro eliminado</h5>";
-                    $query->closeCursor();
-                    $query=null;
-                    $db = null;
-                }
-            ?>
-          </fieldset>
-      </form>
-				
+                                            print"<tr>";
+                                            print"<th>fecha de registro: </th>";
+                                            print"<th>".$row['Fecha_De_Registro']."</th>";
+                                            print"</tr>";
+
+
+                                            print"</table>";
+                                            print "<hr/>";
+                                            print "<input type='submit' name='eliminar' value='Eliminar registro' id='eliminar'>";
+                                        }//rowCount
+                                    }//button buscar
+                                    if(isset($_REQUEST['eliminar'])){
+                                        $correo=isset($_REQUEST['correo']) ? $_REQUEST['correo'] : null;
+                                        $query=$db->connect()->prepare('delete from clientes where correo= :correo');
+                                        $query->execute(['correo'=>$correo]);
+                                        if (!$query) {
+                                            echo "Error: ".$query->errorInfo();
+                                        }
+                                        echo "<h5>Registro eliminado</h5>";
+                                        $query->closeCursor();
+                                        $query=null;
+                                        $db = null;
+                                    }
+                                ?>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
 			</div>
-
 
 		</div>
 
