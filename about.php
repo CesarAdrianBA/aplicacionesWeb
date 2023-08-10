@@ -21,7 +21,11 @@
   <meta property="og:description" content="Professional Cleaning, Professional Care" />
   <meta property="og:locate" content="es_MX" />
   <meta property="og:site_name" content="Laundry Miss Clean" />
+<<<<<<< HEAD
   <link rel="stylesheet" href="./CSS/about.css">
+=======
+  <link rel="stylesheet" href="/CSS/about.css">
+>>>>>>> main
 </head>
 
 <body>
@@ -73,7 +77,7 @@
                             d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                             clip-rule="evenodd"></path>
                         </svg>
-                        <a href="/about" class="hero-6e6ERm">Acerca de nosotros</a>
+                        <a href="/about.php" class="hero-6e6ERm">Acerca de nosotros</a>
                       </div>
                     </li>
                   </ul>
@@ -176,29 +180,31 @@
         </div>
       </div>
     </article>
-    <div class="vision-kpz4GN">
+    <article>
+      <div class="vision-kpz4GN">
 
-      <div class="vision-Xrjimm">
-        <div class="vision-yj0XDN">
-          <img alt="Vision"
-            src="https://images.unsplash.com/photo-1549037173-e3b717902c57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-            class="vision-TcNDX6" />
-        </div>
+        <div class="vision-Xrjimm">
+          <div class="vision-yj0XDN">
+            <img alt="Vision"
+              src="https://images.unsplash.com/photo-1549037173-e3b717902c57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              class="vision-TcNDX6" />
+          </div>
 
-        <div class="vision-LzFTeL">
-          <h2 class="vision-Ps3NqO">Política de Calidad</h2>
-          <p class="vision-r4VyCn">
-            En nuestra lavandería, nos comprometemos a brindar un servicio excepcional y cuidar de la ropa de nuestros
-            clientes de manera óptima.
-            Nos esforzamos por cumplir con los estándares de calidad, mejorar continuamente nuestros procesos y operar
-            de manera sostenible.
-            Valoramos a nuestro equipo y su desarrollo profesional. Nuestro objetivo es garantizar la satisfacción de
-            nuestros clientes y mantener
-            un ambiente seguro y limpio en nuestras instalaciones.
-          </p>
+          <div class="vision-LzFTeL">
+            <h2 class="vision-Ps3NqO">Política de Calidad</h2>
+            <p class="vision-r4VyCn">
+              En nuestra lavandería, nos comprometemos a brindar un servicio excepcional y cuidar de la ropa de nuestros
+              clientes de manera óptima.
+              Nos esforzamos por cumplir con los estándares de calidad, mejorar continuamente nuestros procesos y operar
+              de manera sostenible.
+              Valoramos a nuestro equipo y su desarrollo profesional. Nuestro objetivo es garantizar la satisfacción de
+              nuestros clientes y mantener
+              un ambiente seguro y limpio en nuestras instalaciones.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </article>
   </section>
 
   <footer class='footer-9XOR03'>

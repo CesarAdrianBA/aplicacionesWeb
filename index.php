@@ -66,7 +66,7 @@
                   <span class='subtitle'>Hacemos que tus prendas luzcan increíbles.</span>
                 </p>
                 <div class='border-button'>
-                  <a href="/about" class='about-link link link--arrowed'>
+                  <a href="/about.php" class='about-link link link--arrowed'>
                     Saber más
                     <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                       viewBox="0 0 32 32">
